@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "186430542804",
+    "project_id": "fypp-giri",
+    "storage_bucket": "fypp-giri.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:186430542804:android:d26f3444bd8e3f74eb7c41",
+        "android_client_info": {
+          "package_name": "com.example.fyp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "186430542804-v4a4i4j2fmtmud4s2f21cosq3bifucav.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVqqdiTvcTlqa-ZUSXGsD-G2Z19A19QIs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "186430542804-v4a4i4j2fmtmud4s2f21cosq3bifucav.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
