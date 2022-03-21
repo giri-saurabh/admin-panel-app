@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Fyp">
         <activity
+            android:name=".faculty.addTeacher"
+            android:exported="false" />
+        <activity
+            android:name=".faculty.updateFaculty"
+            android:exported="false" />
+        <activity
             android:name=".uploadPDFActivity"
             android:exported="false" />
         <activity

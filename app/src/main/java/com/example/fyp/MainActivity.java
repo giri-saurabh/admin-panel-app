@@ -7,9 +7,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.fyp.faculty.updateFaculty;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    CardView uploadNotice, addGalleryImage, addMaterials;
+    CardView uploadNotice, addGalleryImage, addMaterials, addTeacher;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,10 +20,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         uploadNotice = findViewById(R.id.addNotice);
         addGalleryImage = findViewById(R.id.addImages);
         addMaterials = findViewById(R.id.addMaterials);
+        addTeacher = findViewById(R.id.faculty);
 
         uploadNotice.setOnClickListener(this);
         addGalleryImage.setOnClickListener(this);
         addMaterials.setOnClickListener(this);
+        addTeacher.setOnClickListener(this);
     }
 
     @Override
@@ -40,7 +44,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(MainActivity.this, uploadPDFActivity.class);
                 startActivity(intent);
                 break;
-
+            case R.id.faculty:
+                intent = new Intent(MainActivity.this, updateFaculty.class);
+                startActivity(intent);
+                break;
 
         }
     }

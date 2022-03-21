@@ -1,5 +1,6 @@
 package com.example.fyp;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -19,13 +20,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class uploadPDFActivity extends AppCompatActivity {
 
@@ -39,7 +46,7 @@ public class uploadPDFActivity extends AppCompatActivity {
     private final int REQ = 1;
 
     private Uri pdfData;
-    private DatabaseReference reference;
+    private DatabaseReference databaseReference;
     private StorageReference storageReference;
     String downloadurl = "";
     private ProgressDialog pd;
@@ -50,7 +57,7 @@ public class uploadPDFActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_pdfactivity);
 
-        reference = FirebaseDatabase.getInstance().getReference();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
         storageReference = FirebaseStorage.getInstance().getReference();
 
         pd = new ProgressDialog(this);
@@ -83,9 +90,53 @@ public class uploadPDFActivity extends AppCompatActivity {
     }
 
     private void uploadPdf() {
+        pd.setTitle("Please wait...");
+        pd.setMessage("Uploading files");
+        pd.show();
+        StorageReference reference = storageReference.child("pdf/"+ pdfName+"-"+System.currentTimeMillis()+".pdf");
+        reference.putFile(pdfData)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                        while (!uriTask.isComplete());
+                        Uri uri = uriTask.getResult();
+                        uploadData(String.valueOf(uri));
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                pd.dismiss();
+                Toast.makeText(uploadPDFActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
 
+
+    }
+
+    private void uploadData(String valueOf) {
+        String uniquieKey = databaseReference.child("pdf").push().getKey();
+
+        HashMap data = new HashMap();
+        data.put("pdfTitle",title);
+        data.put("pdfUrl",downloadurl);
+
+        databaseReference.child("pdf").child(uniquieKey).setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                pd.dismiss();
+                Toast.makeText(uploadPDFActivity.this, "PDF uploaded successfully", Toast.LENGTH_SHORT).show();
+                pdfTitle.setText("");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                pd.dismiss();
+                Toast.makeText(uploadPDFActivity.this, "Fialed to upload PDF", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
