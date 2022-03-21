@@ -62,6 +62,8 @@ public class uploadImage extends AppCompatActivity {
         storageReference = FirebaseStorage.getInstance().getReference().child("gallery");
 
         pd = new ProgressDialog(this);
+
+
         String[ ] items = new String[]{"Select Category", "New Year", "Constitution Day", "Women's Day", "Maha Dashami", "Convocation", "Holi"};
         imageCategory.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items));
 
@@ -159,6 +161,7 @@ public class uploadImage extends AppCompatActivity {
         startActivityForResult(pickimage,REQ);
 
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

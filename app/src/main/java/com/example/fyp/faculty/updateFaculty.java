@@ -10,6 +10,7 @@ import com.example.fyp.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class updateFaculty extends AppCompatActivity {
+
     FloatingActionButton fab;
 
 
@@ -18,11 +19,14 @@ public class updateFaculty extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_faculty);
 
-        fab.setOnClickListener(new View.OnClickListener() {
+        fab = findViewById(R.id.fab);
 
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(updateFaculty.this, addTeacher.class));
+                Intent intent;
+                intent = new Intent(updateFaculty.this,addTeacher.class);
+                startActivity(intent);
             }
         });
     }
