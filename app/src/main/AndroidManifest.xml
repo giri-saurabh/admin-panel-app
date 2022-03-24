@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Fyp">
         <activity
+            android:name=".faculty.updateTeacherActivity"
+            android:exported="false" />
+        <activity
             android:name=".faculty.addTeacher"
             android:exported="false" />
         <activity

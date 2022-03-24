@@ -49,7 +49,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
 
         holder.update.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Toast.makeText(context, "Update Teacher", Toast.LENGTH_SHORT).show();
             }
         });
@@ -59,6 +59,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
 
     @Override
     public int getItemCount() {
+
         return list.size();
     }
 
