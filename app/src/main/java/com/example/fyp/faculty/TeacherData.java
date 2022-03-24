@@ -3,9 +3,9 @@ package com.example.fyp.faculty;
 public class TeacherData {
     private String name, email, post, image, key;
 
-    public TeacherData(){
-
-    }
+//    public TeacherData(){
+//
+//    }
 
     public TeacherData(String name, String email, String post, String image, String key){
         this.name = name;
@@ -16,22 +16,27 @@ public class TeacherData {
     }
 
     public String getName(){
+
         return name;
     }
 
     public String getEmail(){
+
         return email;
     }
 
     public String getPost(){
+
         return post;
     }
 
     public String getImage(){
+
         return image;
     }
 
     public String getKey(){
+
         return key;
     }
 }

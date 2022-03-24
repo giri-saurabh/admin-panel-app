@@ -1,6 +1,7 @@
 package com.example.fyp.faculty;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,7 +51,13 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
         holder.update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Update Teacher", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "Update Teacher", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, updateTeacherActivity.class);
+                intent.putExtra("name",item.getName());
+                intent.putExtra("email",item.getEmail());
+                intent.putExtra("post",item.getPost());
+                intent.putExtra("image",item.getImage());
+
             }
         });
 

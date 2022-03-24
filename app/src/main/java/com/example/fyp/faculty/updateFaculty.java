@@ -50,6 +50,11 @@ public class updateFaculty extends AppCompatActivity {
         webDepartment = findViewById(R.id.webDepartment);
         aiDepartment = findViewById(R.id.aiDepartment);
 
+//        FirebaseApp.initializeApp(updateFaculty.this);
+//        FirebaseAppCheck firebaseAppCheck = FirebaseAppCheck.getInstance();
+//        firebaseAppCheck.installAppCheckProviderFactory(
+//                SafetyNetAppCheckProviderFactory.getInstance());
+//
         reference = FirebaseDatabase.getInstance().getReference().child("teacher");
 
         hpcDepartment();

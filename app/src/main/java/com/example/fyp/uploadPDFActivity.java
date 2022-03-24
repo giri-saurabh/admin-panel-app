@@ -142,7 +142,7 @@ public class uploadPDFActivity extends AppCompatActivity {
 
     private void openGallery() {
         Intent intent = new Intent();
-        intent.setType("pdf/doc/ppt");
+        intent.setType("application/pdf");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select file"),REQ); //11.25 in vid
     }
