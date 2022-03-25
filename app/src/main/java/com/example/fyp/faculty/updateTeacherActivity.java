@@ -65,7 +65,7 @@ public class updateTeacherActivity extends AppCompatActivity {
         updateTeacherBtn = findViewById(R.id.updateTeacherBtn);
         deleteTeacherBtn = findViewById(R.id.deleteTeacherBtn);
 
-        reference = FirebaseDatabase.getInstance().getReference().child("teacher");
+        reference = FirebaseDatabase.getInstance().getReference().child("category");
         storageReference = FirebaseStorage.getInstance().getReference();
 
         try {
@@ -99,7 +99,7 @@ public class updateTeacherActivity extends AppCompatActivity {
 
         deleteTeacherBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 deleteData();
 
             }
