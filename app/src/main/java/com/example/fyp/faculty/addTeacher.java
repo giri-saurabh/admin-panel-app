@@ -94,15 +94,11 @@ public class addTeacher extends AppCompatActivity {
 
                 addTeacherBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
+                    public void onClick(View view) {
                         checkValidation();
                     }
                 });
             }
-
-
-
-
 
             private void openGallery() {
                 Intent pickimage = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -110,9 +106,7 @@ public class addTeacher extends AppCompatActivity {
 
             }
 
-
-
-
+            //@Override
             protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
                 addTeacher.super.onActivityResult(requestCode, resultCode, data);
                 if (requestCode == REQ && resultCode == RESULT_OK) {

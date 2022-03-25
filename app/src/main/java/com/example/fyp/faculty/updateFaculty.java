@@ -90,7 +90,7 @@ public class updateFaculty extends AppCompatActivity {
                     }
                     hpcDepartment.setHasFixedSize(true);
                     hpcDepartment.setLayoutManager(new LinearLayoutManager(updateFaculty.this));
-                    adapter = new TeacherAdapter(list1, updateFaculty.this);
+                    adapter = new TeacherAdapter(list1, updateFaculty.this, "High Performance Computing");
                     hpcDepartment.setAdapter(adapter);
 
                 }
@@ -124,7 +124,7 @@ public class updateFaculty extends AppCompatActivity {
                     }
                     aiDepartment.setHasFixedSize(true);
                     aiDepartment.setLayoutManager(new LinearLayoutManager(updateFaculty.this));
-                    adapter = new TeacherAdapter(list2, updateFaculty.this);
+                    adapter = new TeacherAdapter(list2, updateFaculty.this, "Artificial Intelligence");
                     aiDepartment.setAdapter(adapter);
 
                 }
@@ -158,7 +158,7 @@ public class updateFaculty extends AppCompatActivity {
                     }
                     bdDepartment.setHasFixedSize(true);
                     bdDepartment.setLayoutManager(new LinearLayoutManager(updateFaculty.this));
-                    adapter = new TeacherAdapter(list3, updateFaculty.this);
+                    adapter = new TeacherAdapter(list3, updateFaculty.this, "Big Data");
                     bdDepartment.setAdapter(adapter);
 
                 }
@@ -192,7 +192,7 @@ public class updateFaculty extends AppCompatActivity {
                     }
                     webDepartment.setHasFixedSize(true);
                     webDepartment.setLayoutManager(new LinearLayoutManager(updateFaculty.this));
-                    adapter = new TeacherAdapter(list4, updateFaculty.this);
+                    adapter = new TeacherAdapter(list4, updateFaculty.this, "Web Development");
                     webDepartment.setAdapter(adapter);
 
                 }
