@@ -8,10 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.fyp.faculty.updateFaculty;
+import com.example.fyp.notice.deleteNoticeActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    CardView uploadNotice, addGalleryImage, addMaterials, addTeacher;
+    CardView uploadNotice, addGalleryImage, addMaterials, addTeacher, deleteEvents;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,11 +22,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         addGalleryImage = findViewById(R.id.addImages);
         addMaterials = findViewById(R.id.addMaterials);
         addTeacher = findViewById(R.id.faculty);
+        deleteEvents = findViewById(R.id.deleteEvents);
 
         uploadNotice.setOnClickListener(this);
         addGalleryImage.setOnClickListener(this);
         addMaterials.setOnClickListener(this);
         addTeacher.setOnClickListener(this);
+        deleteEvents.setOnClickListener(this);
     }
 
     @Override
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent;
         switch (view.getId()){
             case R.id.addNotice:
-                intent = new Intent(MainActivity.this, uploadNotice.class);
+                intent = new Intent(MainActivity.this, com.example.fyp.notice.uploadNotice.class);
                 startActivity(intent);
                 break;
             case R.id.addImages:
@@ -46,6 +49,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.faculty:
                 intent = new Intent(MainActivity.this, updateFaculty.class);
+                startActivity(intent);
+                break;
+            case R.id.deleteEvents:
+                intent = new Intent(MainActivity.this, deleteNoticeActivity.class);
                 startActivity(intent);
                 break;
 

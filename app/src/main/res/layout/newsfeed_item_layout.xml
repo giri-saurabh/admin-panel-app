@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
+    android:layout_height="match_parent">
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:orientation="vertical">
-
+        
         <LinearLayout
             android:layout_width="match_parent"
             android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="36dp"
                 android:layout_height="36dp"
@@ -30,26 +30,30 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
+                android:id="@+id/deleteNotice"
                 android:layout_height="wrap_content"
                 android:text="Delete"
                 android:layout_marginLeft="-100dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
 
-
+            
+            
         </LinearLayout>
 
         <TextView
+            android:id="@+id/deleteNoticeTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="to infinity and beyond"
+            android:text="To infinity and beyond"
             android:textSize="17sp"
             android:textColor="@color/textColor"/>
 
-        <androidx.constraintlayout.utils.widget.ImageFilterView
+        <ImageView
+            android:id="@+id/deleteNoticeImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="fitXY"/>
-
+        
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

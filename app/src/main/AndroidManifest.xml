@@ -31,7 +31,7 @@
             android:name=".uploadImage"
             android:exported="false" />
         <activity
-            android:name=".uploadNotice"
+            android:name=".notice.uploadNotice"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -1,4 +1,4 @@
-package com.example.fyp;
+package com.example.fyp.notice;
 
 public class NoticeData {
     String title, image, date, time, key;
